@@ -38,12 +38,12 @@ if(isset($_POST['entermessage'])){
 	$sess->EnterMessage($account['username']);
 }
 
-echo '<div class="menu">';
+/*echo '<div class="menu">';
 echo '<div class="menutext">'.$account['username'].'</div>';
 echo '<div class="menubutton">chat</div>';
 
 echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
-echo '</div>';
+echo '</div>';*/
 
 echo '<div class="chatframe">';
 
