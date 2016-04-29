@@ -1,5 +1,5 @@
 $(document).ready(function(){    
-    loadstation();
+    //loadstation();
     
     $('.messagebox').keydown(function(event) {
         console.log("hit");
@@ -10,8 +10,8 @@ $(document).ready(function(){
     });
 });
 
-function loadstation(){
+/*function loadstation(){
     $("#messagebox").load("../php/livemessages.php");
     console.log("ran");
     setTimeout(loadstation, 250);
-}
+}*/

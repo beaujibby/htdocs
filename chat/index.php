@@ -47,9 +47,9 @@ echo '</div>';
 
 echo '<div class="chatframe">';
 
-echo '<div class="messages" id="messagebox">';
-    
-$sql = new mysqli("localhost","username","password","sqlserver");
+//echo '<div class="messages" id="messagebox">';
+//echo '<iframe class="messages" src="127.0.0.1:3000"></iframe';
+/*$sql = new mysqli("localhost","username","password","sqlserver");
 $messages = "SELECT * FROM (SELECT * FROM sqlserver.messages WHERE 1 ORDER BY timestamp DESC LIMIT 50) messages ORDER BY timestamp ASC";
 $messages = $sql->query($messages);
 while($msg = $messages->fetch_assoc())
@@ -57,8 +57,8 @@ while($msg = $messages->fetch_assoc())
 echo '<div class="message">'.$msg['author']." : ".$msg['content'].'</div>';
 }
 $sql->close();
-    
-echo '</div>';
+    */
+//echo '</div>';
 
 echo '<form class="submitmessage" method="post">';
 echo '<textarea class="messagebox" name="messagebox"></textarea>';
