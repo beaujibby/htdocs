@@ -14,7 +14,7 @@ include("php/Session.class.php");
 $sess = new Session();
 $sess->Init();
 
-$cookie = isset($_COOKIE["session"]);
+$cookie = isset($_COOKIE["session"]); //mmm...cookiessss...
 
 if($cookie) //check if cookie exists for login
 {
