@@ -8,7 +8,7 @@
 	<script type='text/javascript' src='../js/livemessages.js'></script>
 	</head>
 
-	<body style = "background: url('../images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
+	<body style = "background: rgb(24,24,71);background-size:cover;background-attachment:fixed";>
 <?php
 
 include("../php/Session.class.php");
@@ -34,16 +34,16 @@ if(isset($_POST['logout'])){
 	$sess->Logout();
 }
 
-if(isset($_POST['entermessage'])){
+if(isset($_POST['entermessage']) || isset($_POST['messagebox'])){
 	$sess->EnterMessage($account['username']);
 }
 
-/*echo '<div class="menu">';
+echo '<div class="menu">';
 echo '<div class="menutext">'.$account['username'].'</div>';
 echo '<div class="menubutton">chat</div>';
 
 echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
-echo '</div>';*/
+echo '</div>';
 
 echo '<div class="chatframe">';
 
