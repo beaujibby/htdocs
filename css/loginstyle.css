@@ -5,10 +5,19 @@
   padding: 0;
   font-weight: 300;
 }
+@font-face {
+  font-family: 'Nova SOLID SOLID';
+  src: url('http://www.fontsaddict.com/fontface/nova-solid-solid.ttf');
+}
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+}
+h1 {
+    font-family: 'Nova SOLID SOLID', sans-serif;
+    color: black;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
