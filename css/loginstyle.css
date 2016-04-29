@@ -38,8 +38,8 @@ body :-ms-input-placeholder {
 }
 .wrapper {
     background: #50a3a2;
-    background: -webkit-linear-gradient(top left, #0062A1 0%, #0062A1 100%);
-    background: linear-gradient(to bottom right, #0089E0 0%, #0089E0 100%);
+    background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
     position: absolute;
     top: 0%;
     left: 0;
