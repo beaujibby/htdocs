@@ -46,7 +46,7 @@ return $randomString;
 		if($password==$correctpassword)
 		{
 			setcookie("session",$checklogin['cookie'],time()+3600*24,"/");
-			header("Refresh:0");
+            header("Refresh:0");
 		}
 	}
 

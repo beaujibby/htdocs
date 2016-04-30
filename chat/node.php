@@ -8,14 +8,9 @@
     <script src="/socket.io/socket.io.js"></script>
   <script src="/main.js"></script>
 	</head>
-
-	<body style = "background: rgb(24,24,71);background-size:cover;background-attachment:fixed";>
+<body>
 <?php
-
-$ch = curl_init("127.0.0.1:3000");
-
-$ch=curl_exec($ch);
-
+echo '<iframe src="http://localhost:3000" style="width: 100%;height: 100%;"></iframe>';
 ?>
 </body>
 </html>

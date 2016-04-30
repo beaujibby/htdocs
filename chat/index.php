@@ -4,11 +4,11 @@
 	<title>astrum chat</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type='text/javascript' src='../js/script.js'></script>
-	<script type='text/javascript' src='../js/livemessages.js'></script>
+	<!-- <script type='text/javascript' src='../js/livemessages.js'></script> -->
+    <script type='text/javascript' src='../js/websocket.js'></script>
 	</head>
 
-	<body style = "background: rgb(24,24,71);background-size:cover;background-attachment:fixed";>
+	<body style = "background: rgb(255,255,255);background-size:cover;background-attachment:fixed";> <!-- 24,24,71 -->
 <?php
 
 include("../php/Session.class.php");
@@ -46,7 +46,7 @@ echo '<form class="menubutton logoutframe" method="post"><input class="logout lo
 echo '</div>';
 
 echo '<div class="chatframe">';
-    
+
 /*$sql = new mysqli("localhost","username","password","sqlserver");
 $messages = "SELECT * FROM (SELECT * FROM sqlserver.messages WHERE 1 ORDER BY timestamp DESC LIMIT 50) messages ORDER BY timestamp ASC";
 $messages = $sql->query($messages);
@@ -54,9 +54,10 @@ while($msg = $messages->fetch_assoc())
 {
 echo '<div class="message">'.$msg['author']." : ".$msg['content'].'</div>';
 }
-$sql->close();
-*/
-//echo '</div>';
+$sql->close();*/
+
+echo '<iframe src="http://astrum.xyz:3000" style="width: 100%;height: calc(100% - 90px)"></iframe>';
+echo '</div>';
 
 echo '<form class="submitmessage" method="post">';
 echo '<textarea class="messagebox" name="messagebox"></textarea>';

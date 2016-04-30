@@ -39,7 +39,7 @@ if(isset($_POST['create'])){
 
 echo '<div class="wrapper">';
 echo '<div class="container">';
-echo '<h1>Welcome</h1>';
+echo '<h1 id="titleHead">register</h1>';
 echo '<form class="form" id="login" method="post">';
 echo '<input type="text" placeholder="Username" name="username">';
 echo '<input type="password" placeholder="Password" name="password">';

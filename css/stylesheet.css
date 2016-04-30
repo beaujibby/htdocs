@@ -1,5 +1,4 @@
 body {
-
 }
 #loginpanel {
 position: absolute;
@@ -190,4 +189,18 @@ font-weight:bold;
 background-color:red;
 color:white;
 text-align:center;
+}
+
+#menubutton {
+    src="../images/menubuttonwhite.png";
+    float:right;
+    width:20px;
+    height:20px;
+}
+
+.menubar {
+    position: absolute;
+    height:100%;
+    width:100px;
+    left:-80px;
 }

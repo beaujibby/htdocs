@@ -2,12 +2,12 @@
 <html>
 	<head>
 	<title>astrum</title>
-	<link rel='stylesheet' type='text/css' href='css/loginstyle.css'/>
+	<link rel='stylesheet' type='text/css' href='css/loginsheet.css'/>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type='text/javascript' src='js/script.js'></script>
     <script src="js/login.js"></script>
 	</head>
-
+<body>
 <?php
 
 include("php/Session.class.php");
@@ -27,7 +27,7 @@ setcookie("session","",time()-1);
 
 else //user is signed in with valid cookie
 {
-header('Location: /chat');
+header('Location: /home');
 }
 }
 else { //user is not logged in, display login screen
@@ -38,7 +38,7 @@ if(isset($_POST['login'])){
 
 echo '<div class="wrapper">';
 echo '<div class="container">';
-echo '<h1>Welcome</h1>';
+echo '<h1 id="titleHead">Astrum.xyz</h1>';
 echo '<form class="form" id="login" method="post">';
 echo '<input type="text" placeholder="Username" name="username">';
 echo '<input type="password" placeholder="Password" name="password">';
