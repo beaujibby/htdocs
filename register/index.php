@@ -2,7 +2,7 @@
 <html>
 	<head>
 	<title>register</title>
-	<link rel='stylesheet' type='text/css' href='../css/loginstyle.css'/>
+	<link rel='stylesheet' type='text/css' href='../css/loginsheet.css'/>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
     <script src="../js/login.js"></script>
