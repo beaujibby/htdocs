@@ -38,6 +38,10 @@ echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
 echo '</div>';
 echo '<div class="menubar">';
 echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></div>';
+    
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
     

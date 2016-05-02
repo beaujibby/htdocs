@@ -6,6 +6,7 @@
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
 	<script type='text/javascript' src='../js/livemessages.js'></script>
+    <script type='text/javascript' src='../js/home.js'></script>
 	</head>
 
 	<body style = "background: url('../images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
@@ -45,6 +46,18 @@ echo '<div class="menubutton">chat</div>';
 echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
 echo '</div>';*/
 
+echo '<div class="header">';
+echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
+echo '</div>';
+echo '<div class="menubar">';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></div>';
+    
+echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
+echo'</div>';
+    
 echo '<div class="chatframe">';
 
 echo '<div class="messages" id="messagebox">';
