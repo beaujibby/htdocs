@@ -29,11 +29,16 @@ header('Location: /home');
 else //user is signed in with valid cookie
 {
 
+if(isset($_POST['logout'])){
+    $sess->Logout();
+}
+
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
 echo '</div>';
 echo '<div class="menubar">';
 echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></div>';
+echo '<form method="post" id="logout"><input type="submit" name="logout"></input></form>';
 echo'</div>';
     
 }
