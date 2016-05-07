@@ -9,7 +9,7 @@
     <script type='text/javascript' src='../js/chat.js'></script>
 	</head>
 
-	<body style = "background: url('../images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
+	<body style = "background: url('../images/redblackbackground.png');background-size:cover;background-attachment:fixed";>
 <?php
 
 include("../php/Session.class.php");
@@ -35,16 +35,9 @@ if(isset($_POST['logout'])){
 	$sess->Logout();
 }
 
-if(isset($_POST['entermessage']) || isset($_POST['messagebox'])){
+if(isset($_POST['search']) || isset($_POST['messagebox'])){
 	$sess->EnterMessage($account['username']);
 }
-
-/*echo '<div class="menu">';
-echo '<div class="menutext">'.$account['username'].'</div>';
-echo '<div class="menubutton">chat</div>';
-
-echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
-echo '</div>';*/
 
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
@@ -58,16 +51,12 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
     
-echo '<div class="chatframe">';
-
-echo '<div class="messages" id="messagebox">';
-    
 $sql = new mysqli("localhost","username","password","sqlserver");
-$messages = "SELECT * FROM (SELECT * FROM sqlserver.messages WHERE 1 ORDER BY timestamp DESC LIMIT 50) messages ORDER BY timestamp ASC";
+$messages = "SELECT * FROM (SELECT * FROM sqlserver.accounts WHERE username=beau";
 $messages = $sql->query($messages);
 while($msg = $messages->fetch_assoc())
 {
-echo '<div class="message">'.$msg['author']." : ".$msg['content'].'</div>';
+echo '<div class="message">'.$msg['username']." : ".$msg['id'].'</div>';
 }
 $sql->close();
     

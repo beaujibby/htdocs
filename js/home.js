@@ -13,4 +13,5 @@ $(document).ready(function() {
         left=!left;
         }
     });
+    $('.headertext').css('visibility','visible').hide().fadeIn(1000).animate({top:0,opacity:0},2000,'linear',function(){$(this).remove()});
 });

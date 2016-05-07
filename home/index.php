@@ -7,12 +7,14 @@
 	<script type='text/javascript' src='../js/script.js'></script>
     <script type='text/javascript' src='../js/home.js'></script>
 	</head>
-<body style="background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);">
+<body style='background:#53e3a6'> 
 <?php
-
+//;background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);"
 include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
+
+echo '<div class="wrapper"></div>';
 
 $cookie = isset($_COOKIE["session"]); //mmm...cookiessss...
 
@@ -44,6 +46,8 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
     
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
+    
+echo '<h1 class="headertext">Welcome back.</h1>';
     
 }
 }
