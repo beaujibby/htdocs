@@ -23,7 +23,7 @@ position: absolute;
 
 .signup {
 right: 0px;
-top: 35px;
+top: 25px;
 position: absolute;
 }
 
@@ -167,7 +167,7 @@ text-align:center;
  }
 #planet {
     
-    padding: 50px;
+    padding: 0px;
 }
 body {
   font-family: 'Gotham', sans-serif;
@@ -178,7 +178,7 @@ body {
 #titleHead {
     font-family: 'Nova SOLID', sans-serif;
     color: white;
-    font-size: 90px;
+    font-size: 180px;
     line-height: 80px;
 }
 .title {
