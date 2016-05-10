@@ -6,10 +6,10 @@
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
 	<script type='text/javascript' src='../js/livemessages.js'></script>
-    <script type='text/javascript' src='../js/chat.js'></script>
+    <script type='text/javascript' src='../js/users.js'></script>
 	</head>
 
-	<body style = "background: url('../images/redblackbackground.png');background-size:cover;background-attachment:fixed";>
+	<body style = "background: url('../images/cyanwhitebackground.png');background-size:cover;background-attachment:fixed";>
 <?php
 
 include("../php/Session.class.php");
@@ -34,10 +34,12 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
 	$sess->Logout();
 }
-
-if(isset($_POST['search']) || isset($_POST['messagebox'])){
-	$sess->EnterMessage($account['username']);
+    
+if(isset($_POST['submitsearch']) || isset($_POST['searchbar'])){
+	$sess->getUsers();
 }
+
+echo '<div class="wrapper"></div>';    
 
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
@@ -50,23 +52,10 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
     
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
-    
-$sql = new mysqli("localhost","username","password","sqlserver");
-$messages = "SELECT * FROM (SELECT * FROM sqlserver.accounts WHERE username=beau";
-$messages = $sql->query($messages);
-while($msg = $messages->fetch_assoc())
-{
-echo '<div class="message">'.$msg['username']." : ".$msg['id'].'</div>';
-}
-$sql->close();
-    
-echo '</div>';
 
-echo '<form class="submitmessage" method="post">';
-echo '<textarea class="messagebox" name="messagebox"></textarea>';
-echo '<input class="button entermessage" type="submit" name="entermessage"></input>';
-echo '</form>';
-echo '</div>';
+echo '<form class="usersearch" method="post"><input class="searchbar" name="searchbar"></input><input type="submit" class="submitsearch" value="search" name="submitsearch"></input></form>"';
+
+
 }
 }
 

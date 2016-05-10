@@ -98,6 +98,7 @@ return $randomString;
 		return 0;
 		}
 		return $user;
+        $sql->close();
 	}
 
 	public function Logout()
@@ -105,6 +106,18 @@ return $randomString;
 		setcookie("session","",time()-1,"/");
 		header("Refresh:0");
 	}
+    
+    public function getUsers()
+    {
+        $query = $_POST['searchbar'];
+        $sql = new mysqli("localhost","username","password","sqlserver");
+        $query = "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'";
+        $query = $sql->query($query);
+        while($user = $query->fetch_assoc())
+        {
+            echo $user['username'].'<br>';
+        }
+    }
 
 	public function EnterMessage($author)
 	{

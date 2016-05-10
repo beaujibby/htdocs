@@ -6,6 +6,11 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type='text/javascript' src='js/script.js'></script>
     <script src="js/login.js"></script>
+    <script src="js/three.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script src="http://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        <script src="js/stats.min.js"></script>
+        
 	</head>
 <body>
 <?php
@@ -39,6 +44,7 @@ if(isset($_POST['login'])){
 echo '<div class="wrapper">';
 echo '<div class="container">';
 echo '<h1 id="titleHead">Astrum.xyz</h1>';
+echo '<div id ="planet"></div>';
 echo '<form class="form" id="login" method="post">';
 echo '<input type="text" placeholder="Username" name="username">';
 echo '<input type="password" placeholder="Password" name="password">';
