@@ -45,13 +45,15 @@ echo '<input type="password" placeholder="Password" name="password">';
 echo '<button type="submit" id="login-button" name="login">Login</button>';
 echo '</form>';
 echo '<a href="/register" style="text-decoration: none;color: white;z-index:3;position:relative">dont have an account? sign up today.</a>';
+
+echo '<div id = "creds">
+Skylar Thomas and Zac Hardy
+</div>';
+    
 echo '</div>';
 echo '<ul class="bg-bubbles">';
 echo '<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>';
 echo '</ul>';
-echo '<div id = "creds">
-<p>Skylar Thomas and Zac Hardy</p>
-</div>';
 echo '</div>';
 //echo '</form>';
 //echo '</div>';
