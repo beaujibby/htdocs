@@ -49,6 +49,9 @@ echo '</div>';
 echo '<ul class="bg-bubbles">';
 echo '<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>';
 echo '</ul>';
+echo '<div id = "creds">
+<p>Skylar Thomas and Zac Hardy</p>
+</div>';
 echo '</div>';
 //echo '</form>';
 //echo '</div>';

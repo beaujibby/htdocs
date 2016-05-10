@@ -173,13 +173,19 @@ body {
   font-family: 'Gotham', sans-serif;
     font-weight: 300;
   color: white;
-  font-weight: 300;
+  font-size: 9px;
 }
 #titleHead {
     font-family: 'Nova SOLID', sans-serif;
     color: white;
     font-size: 180px;
     line-height: 80px;
+}
+#creds {
+    text-align:center;
+    font-family: 'Gotham', sans-serif;
+    font-weight: 300;
+  color: white;
 }
 
 body ::-webkit-input-placeholder {
