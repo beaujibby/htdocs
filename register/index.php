@@ -34,7 +34,7 @@ header('Location: ../');
 else { //user is not logged in, display login screen
 
 if(isset($_POST['create'])){
-	$sess->CreateAccount();
+	$sess->CreateAccount($_SERVER['REMOTE_ADDR']);
 }
 
 echo '<div class="wrapper">';

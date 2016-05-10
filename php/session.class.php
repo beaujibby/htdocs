@@ -50,7 +50,7 @@ return $randomString;
 		}
 	}
 
-	public function CreateAccount()
+	public function CreateAccount($ip)
 	{
 		$username=$_POST['username'];
 		$password=$_POST['password'];
@@ -70,7 +70,7 @@ return $randomString;
 
 		$cookie=$this->generateRandomString(30);
 		
-		$create = "INSERT INTO sqlserver.accounts (`id`, `username`, `password`, `cookie`) VALUES (".$id.",'".$username."','".$password."','".$cookie."')";
+		$create = "INSERT INTO sqlserver.accounts (`id`, `username`, `password`, `cookie`,`ip`) VALUES (".$id.",'".$username."','".$password."','".$cookie."','".$ip."')";
 		$sql->query($create);
 		$sql->close();
         
