@@ -5,8 +5,15 @@ $messages = $sql->query($messages);
 echo '<div class="messages" id="messagebox">';
 while($msg = $messages->fetch_assoc())
 {
+if($msg['author']=='beau')
+{
+    echo '<div class="message admin">'.$msg['author']." : ".$msg['content'];
+echo '</div>';
+}
+else {
 echo '<div class="message">'.$msg['author']." : ".$msg['content'];
 echo '</div>';
+}
 }
 $sql->close();
 ?>

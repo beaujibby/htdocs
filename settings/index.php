@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>astrum chat</title>
+	<title>astrum</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
-	<script type='text/javascript' src='../js/livemessages.js'></script>
-    <script type='text/javascript' src='../js/chat.js'></script>
+    <script type='text/javascript' src='../js/home.js'></script>
 	</head>
-
-	<body style = "background: url('../images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
+<body style='background:#53e3a6'> 
 <?php
-
+//;background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);"
 include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
 
-$cookie = isset($_COOKIE["session"]);
+echo '<div class="wrapper"></div>';
+
+$cookie = isset($_COOKIE["session"]); //mmm...cookiessss...
 
 if($cookie) //check if cookie exists for login
 {
@@ -24,27 +24,16 @@ $cookie = $_COOKIE["session"];
 $account = $sess->Verify($cookie);
 if($account==0) //user is singed in with invalid cookie
 {
-setcookie("session","",time()-1,"/");
-header('Location: ../');
+setcookie("session","",time()-1);
+header('Location: /home');
 }
 
 else //user is signed in with valid cookie
 {
 
 if(isset($_POST['logout'])){
-	$sess->Logout();
+    $sess->Logout();
 }
-
-if(isset($_POST['entermessage']) || isset($_POST['messagebox'])){
-	$sess->EnterMessage($account['username']);
-}
-
-/*echo '<div class="menu">';
-echo '<div class="menutext">'.$account['username'].'</div>';
-echo '<div class="menubutton">chat</div>';
-
-echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
-echo '</div>';*/
 
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
@@ -58,29 +47,10 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
     
-echo '<div class="chatframe">';
-
-echo '<div class="messages" id="messagebox">';
+echo '<h1 class="headertext">Welcome to user page</h1>';
     
-$sql = new mysqli("localhost","username","password","sqlserver");
-$messages = "SELECT * FROM (SELECT * FROM sqlserver.messages WHERE 1 ORDER BY timestamp DESC LIMIT 50) messages ORDER BY timestamp ASC";
-$messages = $sql->query($messages);
-while($msg = $messages->fetch_assoc())
-{
-echo '<div class="message">'.$msg['author']." : ".$msg['content'].'</div>';
-}
-$sql->close();
-    
-echo '</div>';
-
-echo '<form class="submitmessage" method="post">';
-echo '<textarea class="messagebox" name="messagebox"></textarea>';
-echo '<input class="button entermessage" type="submit" name="entermessage"></input>';
-echo '</form>';
-echo '</div>';
 }
 }
-
 else { //user is not logged in, return to login screen
 header('Location: ../');
 }
