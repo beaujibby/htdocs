@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>astrum</title>
+	<title>Astrum</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/imgupload.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
     <script type='text/javascript' src='../js/home.js'></script>
 	</head>
@@ -34,7 +35,7 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
     $sess->Logout();
 }
-
+    
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
 echo '</div>';
@@ -49,7 +50,11 @@ echo'</div>';
 
 echo '<div class="wrapper">';
 echo '<h1>User Profile</h1>';
-echo '<img id="userimg" src="../images/backgroundplanet.png"></img>';
+echo '<div class="img-container">';
+echo '<img class="userimg" src="../images/backgroundplanet.png" />';
+echo '</div>';
+echo '<div class="upload-button">Edit Profile</div>';
+echo '<input class="file-upload" type="file" accept="image/*"/>';
 echo '</div>';
     
 }
