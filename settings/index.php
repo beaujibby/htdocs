@@ -46,8 +46,11 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
     
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
-    
-echo '<h1 class="headertext">Welcome to user page</h1>';
+
+echo '<div class="wrapper">';
+echo '<h1>User Profile</h1>';
+echo '<img id="userimg" src="../images/backgroundplanet.png"></img>';
+echo '</div>';
     
 }
 }
