@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>ζeta</title>
-	<link rel='stylesheet' type='text/css' href='css/stylesheet.css'/>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type='text/javascript' src='js/script.js'></script>
+	<title>astrum users</title>
+	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type='text/javascript' src='../js/script.js'></script>
+	<script type='text/javascript' src='../js/livemessages.js'></script>
+    <script type='text/javascript' src='../js/users.js'></script>
 	</head>
 
-	<body style = "background: url('images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
+	<body style = "background: url('../images/cyanwhitebackground.png');background-size:cover;background-attachment:fixed";>
 <?php
 
-include("../../php/Session.class.php");
+include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
 
@@ -22,7 +24,8 @@ $cookie = $_COOKIE["session"];
 $account = $sess->Verify($cookie);
 if($account==0) //user is singed in with invalid cookie
 {
-setcookie("session","",time()-1);
+setcookie("session","",time()-1,"/");
+header('Location: ../');
 }
 
 else //user is signed in with valid cookie
@@ -32,20 +35,33 @@ if(isset($_POST['logout'])){
 	$sess->Logout();
 }
 
-echo '<div class="menu">';
-echo '<div class="menutext">'.$account['username'].'</div>';
-echo '<a class="menubutton" href="/chat">chat</a>';
 
-echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
+echo '<div class="wrapper">';    
+echo '<form class="usersearch" method="post"><input class="searchbar" name="searchbar"></input><input type="submit" class="submitsearch" value="search" name="submitsearch"></input></form>"';
+    
+if(isset($_POST['submitsearch']) || isset($_POST['searchbar'])){
+	$sess->getUsers();      
+}
 echo '</div>';
-}
+echo '<div class="header">';
+echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
+echo '</div>';
+echo '<div class="menubar">';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></div>';
+echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></div>';
+    
+echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
+echo'</div>';
+
 
 }
+}
 
-$path = dirname($_SERVER['PHP_SELF']);
-$position = strrpos($path,'/') + 1;
-$username=substr($path,$position);
-echo $username;
+else { //user is not logged in, return to login screen
+header('Location: ../');
+}
 
 ?>
 </body>

@@ -15,8 +15,6 @@ include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
 
-echo '<div class="wrapper"></div>';
-
 $cookie = isset($_COOKIE["session"]); //mmm...cookiessss...
 
 if($cookie) //check if cookie exists for login
@@ -35,6 +33,19 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
     $sess->Logout();
 }
+	
+if(isset($_POST['saveimage'])){
+    $sess->UploadImage();
+}
+
+echo '<div class="wrapper">';
+
+echo '<h1>S e t t i n g s</h1>';
+echo '<form method="post">';
+echo '<input type="image" class="userimg" name="userimg" src="../images/backgroundplanet.png" />';
+echo '<div class="upload-button">Edit Profile</div>';
+echo '<input class="file-upload" type="file" accept="image/*"/>';
+echo '<input type="submit" class="button saveimage" name="saveimage" value="Save"></input></form>';  
     
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
@@ -48,13 +59,6 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
 
-echo '<div class="wrapper">';
-echo '<h1>User Profile</h1>';
-echo '<div class="img-container">';
-echo '<img class="userimg" src="../images/backgroundplanet.png" />';
-echo '</div>';
-echo '<div class="upload-button">Edit Profile</div>';
-echo '<input class="file-upload" type="file" accept="image/*"/>';
 echo '</div>';
     
 }

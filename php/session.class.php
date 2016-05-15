@@ -109,14 +109,16 @@ return $randomString;
     
     public function getUsers()
     {
+        echo '<div class="results">';
         $query = $_POST['searchbar'];
         $sql = new mysqli("localhost","username","password","sqlserver");
         $query = "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'";
         $query = $sql->query($query);
         while($user = $query->fetch_assoc())
         {
-            echo $user['username'].'<br>';
+            echo '<div class="result">'.$user['username'].'</div>';
         }
+        echo '</div>';
     }
 
 	public function EnterMessage($author)
@@ -128,6 +130,12 @@ return $randomString;
 		$sql = new mysqli("localhost","username","password","sqlserver");
 		$sql->query($query);
 		$sql->close();
+	}
+	
+	public function UploadImage()
+	{
+		$img=$_POST['userimg'];
+		echo 'hi';
 	}
 }
 
