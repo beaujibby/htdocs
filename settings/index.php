@@ -40,7 +40,7 @@ if(isset($_POST['saveimage'])){
 
 echo '<div class="wrapper">';
 
-echo '<h1>S e t t i n g s</h1>';
+echo '<h1>Settings</h1>';
 echo '<form method="post">';
 echo '<input type="image" class="userimg" name="userimg" src="../images/backgroundplanet.png" />';
 echo '<div class="upload-button">Edit Profile</div>';

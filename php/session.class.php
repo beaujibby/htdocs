@@ -116,7 +116,7 @@ return $randomString;
         $query = $sql->query($query);
         while($user = $query->fetch_assoc())
         {
-            echo '<div class="result">'.$user['username'].'</div>';
+            echo '<div class="result">'.$user['username'].' '.$user['blurb'].'</div>';
         }
         echo '</div>';
     }
@@ -134,8 +134,10 @@ return $randomString;
 	
 	public function UploadImage()
 	{
-		$img=$_POST['userimg'];
+		print_r($_POST);
 		echo 'hi';
+		
+		
 	}
 }
 

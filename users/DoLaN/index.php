@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Astrum Profile</title>
+	<title>ζeta</title>
 	<link rel='stylesheet' type='text/css' href='css/stylesheet.css'/>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type='text/javascript' src='js/script.js'></script>

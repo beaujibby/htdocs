@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Astrum Profile</title>
+	<title>ζeta</title>
 	<link rel='stylesheet' type='text/css' href='css/stylesheet.css'/>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type='text/javascript' src='js/script.js'></script>
@@ -32,12 +32,13 @@ if(isset($_POST['logout'])){
 	$sess->Logout();
 }
 
-echo '<div class="menu">';
-echo '<div class="menutext">'.$account['username'].'</div>';
-echo '<a class="menubutton" href="/chat">chat</a>';
+//echo '<div class="menu">';
+//echo '<div class="menutext">'.$account['username'].'</div>';
+//echo '<a class="menubutton" href="/chat">chat</a>';
 
-echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
-echo '</div>';
+//echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
+//echo '</div>';
+echo '<iframe style="width:100%; height:670px; z-index:100" src="http://www.diep.io"></iframe>';
 }
 
 }
@@ -45,7 +46,7 @@ echo '</div>';
 $path = dirname($_SERVER['PHP_SELF']);
 $position = strrpos($path,'/') + 1;
 $username=substr($path,$position);
-echo $username;
+////echo $username;
 
 ?>
 </body>
