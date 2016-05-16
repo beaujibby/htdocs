@@ -116,6 +116,7 @@ return $randomString;
         while($user = $query->fetch_assoc())
         {
             echo $user['username'].'<br>';
+            echo 'hi';
         }
     }
 
