@@ -100,6 +100,29 @@ position:absolute;
 bottom:8px;
 width: 100%;
 }
+
+
+.changeUser {
+    display: block;
+    padding: 20px;
+cursor: pointer;
+font-size: 18px;
+text-align: center;
+align-content: center;
+line-height: 0px;
+font-family: "Helvetica Neue",Helvetica,Arial;
+color: #fff;
+height: 26px;
+width: 200px;
+border-radius: 5px;
+border: solid;
+     position: fixed;
+  top: 60%;
+  left: 50%;
+  margin-top: 170px;
+  margin-left: -100px;
+}
+
 .upload-button {
 display: block;
 padding: 20px;
@@ -114,6 +137,40 @@ height: 26px;
 width: 200px;
 border-radius: 5px;
 border: solid;
+<<<<<<< HEAD
+     position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-top: 170px;
+  margin-left: -100px;
+}
+.save {
+    display: block;
+    padding: 20px;
+cursor: pointer;
+font-size: 18px;
+text-align: center;
+align-content: center;
+line-height: 0px;
+font-family: "Helvetica Neue",Helvetica,Arial;
+color: #fff;
+height: 26px;
+width: 200px;
+border-radius: 5px;
+border: solid;
+     position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 170px;
+  margin-left: -100px;
+}
+.img-container {
+    position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+=======
 position: absolute;
 top: calc(50% + 113px);
 left: calc(50% - 100px);
@@ -122,6 +179,7 @@ left: calc(50% - 100px);
     position: fixed;
   top: calc(50% - 100px);
   left: calc(50% - 100px);
+>>>>>>> origin/master
 }
 
 .userimg {
@@ -135,7 +193,7 @@ left: calc(50% - 100px);
 	left: calc(50% - 100px);
 }
 
-.file-upload {
+.file-upload, .changeUserBtn, .saveBtn, .submit, #file {
     display: none;
 }
 
