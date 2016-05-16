@@ -38,7 +38,6 @@ if(isset($_POST['login'])){
 	$sess->Login();
 }
 echo '<div class="wrapper">';
-echo '<div id="galaxy"></div>';
 echo '<div class="container">';
 echo '<h1 id="titleHead">Astrum</h1>';
 echo '<div id ="planet"></div>';

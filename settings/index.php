@@ -20,8 +20,6 @@ include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
 
-echo '<div class="wrapper"></div>';
-
 $cookie = isset($_COOKIE["session"]); //mmm...cookiessss...
 
 if($cookie) //check if cookie exists for login
@@ -41,6 +39,7 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
     $sess->Logout();
 }
+<<<<<<< HEAD
 $name= $account['username'];
 $_SESSION['userid'] = $account['id'];
 
@@ -63,6 +62,21 @@ $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
 $sql = "SELECT image, image_type FROM imageblob WHERE user_id=".$_SESSION['userid']." ORDER BY image_id DESC"; //select most recent image where user id equals id in accounts using DESC and stores in $sql
+=======
+	
+if(isset($_POST['saveimage'])){
+    $sess->UploadImage();
+}
+
+echo '<div class="wrapper">';
+
+echo '<h1>S e t t i n g s</h1>';
+echo '<form method="post">';
+echo '<input type="image" class="userimg" name="userimg" src="../images/backgroundplanet.png" />';
+echo '<div class="upload-button">Edit Profile</div>';
+echo '<input class="file-upload" type="file" accept="image/*"/>';
+echo '<input type="submit" class="button saveimage" name="saveimage" value="Save"></input></form>';  
+>>>>>>> origin/master
     
  /*** prepare the sql ***/
  $stmt = $dbh->prepare($sql);
@@ -104,6 +118,7 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
 
+<<<<<<< HEAD
 echo '<div class="wrapper">';
 echo '<h1> Welcome, '.$name.'</h1>';
     
@@ -118,6 +133,8 @@ echo '<form id="uploadimage" action="" method="post" enctype="multipart/form-dat
 echo '<div class="upload-button">Edit Image</div>';
 echo '<input type="file" name="file" id="file" required />';
 echo '<input type="submit" value="Upload" class="submit" enctype="multipart/form-data" />';
+=======
+>>>>>>> origin/master
 echo '</div>';
     
 echo '<div class="save">Save Profile</div>';
