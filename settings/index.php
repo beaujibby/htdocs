@@ -11,17 +11,9 @@
 <body style='background:#53e3a6'> 
 <?php
 session_start();
-<<<<<<< Updated upstream
 include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
-=======
-//;background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);"
-include("../php/Session.class.php");
-$sess = new Session();
-$sess->Init();
-echo '<div class="wrapper"></div>';
->>>>>>> Stashed changes
 $cookie = isset($_COOKIE["session"]); //mmm...cookiessss...
 if($cookie) //check if cookie exists for login
 {
@@ -34,10 +26,10 @@ header('Location: /home');
 }
 else //user is signed in with valid cookie
 {
+
 if(isset($_POST['logout'])){
     $sess->Logout();
 }
-<<<<<<< Updated upstream
 $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
@@ -51,46 +43,12 @@ $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 /*** set the header for the image ***/
 $array = $stmt->fetch();
-=======
-$name= $account['username'];
-$_SESSION['userid'] = $account['id'];
-echo $name;  
-/*$qry = mysql_query("SELECT * FROM imageblob");
-while($row = mysql_fetch_array($qry))
-  {
-  echo $row['id'];
-  echo "<br />";
-  echo $row['image'];
-  echo "<br />";
-  }*/
-//include("../php/pictest.php");
-//include("../php/returnImg.php");
-//include("../php/pictest.php");
-$dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
-$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-$sql = "SELECT image, image_type FROM imageblob WHERE user_id=".$_SESSION['userid']." ORDER BY image_id DESC"; //select most recent image where user id equals id in accounts using DESC and stores in $sql
-    
- /*** prepare the sql ***/
- $stmt = $dbh->prepare($sql);
- /*** exceute the query ***/
- $stmt->execute(); 
- /*** set the fetch mode to associative array ***/
- $stmt->setFetchMode(PDO::FETCH_ASSOC);
- /*** set the header for the image ***/
- $array = $stmt->fetch();
->>>>>>> Stashed changes
  /*** check we have a single image and type ***/
  if(sizeof($array) == 2)
  {
      //To Display Image File from Database
-<<<<<<< Updated upstream
      $imgdata = base64_encode($array['image']); //store img src
 	 $src = 'data:image/jpeg;base64,'.$imgdata;
-=======
-     //echo '<img src="data:image/jpeg;base64,'.base64_encode( $array['image'] ).'"/>';
-     $imgdata = base64_encode( $array['image']); //store img src
->>>>>>> Stashed changes
  }
  else
  {
@@ -124,10 +82,6 @@ echo '<form id="uploadimage" action="" method="post" enctype="multipart/form-dat
 echo '<div class="upload-button">Edit</div>';
 echo '<input type="file" name="file" id="file" required />';
 echo '<input type="submit" value="Upload" class="submit" enctype="multipart/form-data" />';
-<<<<<<< Updated upstream
-=======
-echo '</div>';
->>>>>>> Stashed changes
     
 echo '<div class="save">Save</div>';
 echo '<div class="saveBtn" method="post"></div>';

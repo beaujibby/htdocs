@@ -58,20 +58,21 @@ top: 35px;
 }
 
 .button {
-display: block;
-background-color: #4099FF;
-cursor: pointer;
-font-size: 18px;
 text-align: center;
 align-content: center;
-line-height: 26px;
+outline: 0;
+background-color: white;
+border: 0;
+padding: 10px 15px;
+color: #53e3a6;
+border-radius: 3px;
+width: 250px;
+height: 30px;
+line-height: 30px;
+cursor: pointer;
+font-size: 18px;
 font-family: "Helvetica Neue",Helvetica,Arial;
-color: #fff;
 text-decoration: none;
-height: 26px;
-width: 160px;
-border-radius: 5px;
-border: none;
 }
 
 .login {
@@ -121,8 +122,8 @@ left: calc(50% - 107px);
 }
 
 .upload-button {
-    display: block;
-    padding: 20px;
+display: block;
+padding: 20px;
 cursor: pointer;
 font-size: 18px;
 text-align: center;
@@ -134,14 +135,6 @@ height: 26px;
 width: 100px;
 border-radius: 5px;
 border: solid;
-<<<<<<< Updated upstream
-=======
-     position: fixed;
-  top: 40%;
-  left: 50%;
-  margin-top: 170px;
-  margin-left: -100px;
->>>>>>> Stashed changes
 }
 .save {
     display: block;
@@ -157,21 +150,6 @@ height: 26px;
 width: 100px;
 border-radius: 5px;
 border: solid;
-<<<<<<< Updated upstream
-=======
-     position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: 170px;
-  margin-left: -100px;
-}
-.img-container {
-    position: fixed;
-  top: 40%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -100px;
->>>>>>> Stashed changes
 }
 
 .userimg {
@@ -179,11 +157,7 @@ border: solid;
     height: 200px;
     background-position: center center;
     background-size: cover;
-<<<<<<< Updated upstream
 	margin-top: 20px;
-=======
-    
->>>>>>> Stashed changes
 }
 
 .file-upload, .changeUserBtn, .saveBtn, .submit, #file {
@@ -210,7 +184,7 @@ height:80px;
 position:fixed;
 bottom:0px;
 left:0px;
-background: #4099FF;
+background: #53e3a6;
 }
 
 .messagebox {
@@ -222,7 +196,6 @@ position:absolute;
 }
 
 .entermessage {
-background-color: #663399;
 border-radius:0px;
 height:100%;
 width:120px;
@@ -231,7 +204,7 @@ position:absolute;
 }
 
 .messages {
-overflow: scroll;
+overflow: hidden;
 width: calc(100% + 18px);
 height: calc(100% - 23px);
 background: url('../images/backgroundplanet.png');
@@ -337,12 +310,10 @@ h1 {
 	margin-top: 50px;
 }
 #userimg {
-    
     height: 200px;
     left: 50%;
     padding: 50px;
-    top: 50%;
-    
+    top: 50%;   
 }
 
 .wrapper {
@@ -407,7 +378,6 @@ h1 {
     height: 47px;
 }
 
-<<<<<<< Updated upstream
 .result{
     position: relative;
     width: 40%;
@@ -453,8 +423,6 @@ width: 200px;
 }
 
 
-=======
->>>>>>> Stashed changes
 
 
 

@@ -116,15 +116,7 @@ return $randomString;
         $query = $sql->query($query);
         while($user = $query->fetch_assoc())
         {
-<<<<<<< Updated upstream
             echo '<div class="result">'.$user['username'].' '.$user['blurb'].'</div>';
-=======
-
-            echo $user['username'].'<br>';
-            echo 'hi';
-            echo '<div class="result">'.$user['username'].'</div>';
-
->>>>>>> Stashed changes
         }
         echo '</div>';
     }
