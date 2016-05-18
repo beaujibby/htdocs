@@ -1,5 +1,4 @@
 <?php
-
 class Session
 {
 
@@ -72,6 +71,10 @@ return $randomString;
 		
 		$create = "INSERT INTO sqlserver.accounts (`id`, `username`, `password`, `cookie`,`ip`) VALUES (".$id.",'".$username."','".$password."','".$cookie."','".$ip."')";
 		$sql->query($create);
+		
+		$imgquery = "INSERT INTO sqlserver.imageblob (`user_id`) VALUES (".$id.")";
+		$sql->query($imgquery);
+		
 		$sql->close();
         
         $oldmask = umask(0);
@@ -134,11 +137,33 @@ return $randomString;
 	
 	public function UploadImage()
 	{
-		print_r($_POST);
-		echo 'hi';
-		
-		
-	}
-}
+		$validextensions = array("jpeg", "jpg", "png");
+		$maxsize = 99999999;
+		$temporary = explode(".", $_FILES["file"]["name"]);
+		$file_extension = end($temporary);
+		if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] =="image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")
+		) && ($_FILES["file"]["size"] < $maxsize)//Approx. 100kb files can beuploaded.
+		&& in_array($file_extension, $validextensions)) {
 
+			$size = getimagesize($_FILES['file']['tmp_name']);
+			$type = $size['mime'];
+			$imgfp = fopen($_FILES['file']['tmp_name'], 'rb');
+			$size = $size[3];
+			$name = $_FILES['file']['name'];
+
+			$sql = new mysqli("localhost","username","password","sqlserver");
+			$imgfp = base64_encode(stream_get_contents($imgfp));
+			$update = "UPDATE sqlserver.imageblob set image='".$imgfp."',image_type='".$type."', image_name='".$name."', image_size='".$size."' whereuser_id=".$account['id'];
+			echo $update;
+			$sql->query($update);
+		}
+	}
+	
+	public function getImage($id)
+	{
+		
+		echo 0;
+	}
+		
+}
 ?>

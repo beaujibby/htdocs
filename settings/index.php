@@ -4,7 +4,7 @@
 	<title>Astrum</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<script type="text/javascript" src="../js/jquery.js"></script>
-    <script type="text/javascript" src="../js/imgupload2.js"></script>
+    <script type="text/javascript" src="../js/imgupload.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
     <script type='text/javascript' src='../js/home.js'></script>
 	</head>
@@ -33,7 +33,7 @@ if(isset($_POST['logout'])){
 $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-$sql = "SELECT image, image_type FROM imageblob WHERE user_id=".$account['id']." ORDER BY image_id DESC"; //select most recent image where user id equals id in accounts using DESC and stores in $sql
+$sql = "SELECT image, image_type FROM imageblob WHERE user_id=".$account['id']; //select most recent image where user id equals id in accounts using DESC and stores in $sql
    
 /*** prepare the sql ***/
 $stmt = $dbh->prepare($sql);
@@ -47,7 +47,7 @@ $array = $stmt->fetch();
  if(sizeof($array) == 2)
  {
      //To Display Image File from Database
-     $imgdata = base64_encode($array['image']); //store img src
+     $imgdata = $array['image']; //store img src
 	 $src = 'data:image/jpeg;base64,'.$imgdata;
  }
  else

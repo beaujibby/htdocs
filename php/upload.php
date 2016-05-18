@@ -1,7 +1,23 @@
 <?php
 
-session_start();
-//if isset($_POST)
+include("../php/Session.class.php");
+$sess = new Session();
+$sess->Init();
+
+$cookie = isset($_COOKIE["session"]);
+
+if($cookie) //check if cookie exists for login
+{
+$cookie = $_COOKIE["session"];
+$account = $sess->Verify($cookie);
+if($account==0) //user is singed in with invalid cookie
+{
+setcookie("session","",time()-1,"/");
+header('Location: ../');
+}
+
+else //user is signed in with valid cookie
+{
 if(isset($_FILES["file"]["type"]))
 {
 $validextensions = array("jpeg", "jpg", "png");
@@ -11,117 +27,28 @@ $file_extension = end($temporary);
 if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")
 ) && ($_FILES["file"]["size"] < $maxsize)//Approx. 100kb files can be uploaded.
 && in_array($file_extension, $validextensions)) {
-if ($_FILES["file"]["error"] > 0)
-{
-echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
-}
-else
-{
-if (file_exists("images/" . $_FILES["file"]["name"])) {
-echo $_FILES["file"]["name"] . " <span id='invalid'><b>already exists.</b></span> ";
-}
-else
-{
-$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-$targetPath = "images/".$_FILES['file']['name']; // Target path where file is to be stored
 
 $size = getimagesize($_FILES['file']['tmp_name']);
-/*** assign our variables ***/
 $type = $size['mime'];
 $imgfp = fopen($_FILES['file']['tmp_name'], 'rb');
 $size = $size[3];
 $name = $_FILES['file']['name'];
 
-/*** check the file is less than the maximum file size ***/
-if($_FILES['file']['size'] < $maxsize )
-{
-/*** connect to db ***/
-$dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
+$sql = new mysqli("localhost","username","password","sqlserver");
+$imgfp = base64_encode(stream_get_contents($imgfp));
+$update = "UPDATE sqlserver.imageblob set image='".$imgfp."', image_type='".$type."', image_name='".$name."', image_size='".$size."' where user_id=".$account['id'];
+$sql->query($update);
 
-/*** set the error mode ***/
-$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$q = "SELECT image, image_type FROM sqlserver.imageblob WHERE user_id=".$account['id'];
+$q=$sql->query($q);
+$q=$q->fetch_assoc();
+echo '<img src="data:image/jpeg;base64,'.$q['image'].'"/>';
+}
+}
 
-//Sql query
-$stmt = $dbh->prepare("INSERT INTO imageblob (image_type ,image, image_size, image_name, user_id) VALUES (? ,?, ?, ?, ".$account['id'].")");
-     
-//$stmt = $dbh->prepare("UPDATE sqlserver.accounts SET image_type = image_type, image=image, image_size = image_size, image_name = image_name WHERE username = ".$account[‘username’]."'"); //insert into row rather than column
-
-//$stmt = $dbh->prepare("UPDATE tablename SET columnname = '".$new_value."' WHERE columnname = '".$value."'");
-
-/*** bind the params ***/
-$stmt->bindParam(1, $type);
-$stmt->bindParam(2, $imgfp, PDO::PARAM_LOB);
-$stmt->bindParam(3, $size);
-$stmt->bindParam(4, $name);
-
-/*** execute the query ***/
-$stmt->execute();
-$lastid = $dbh->lastInsertId(); 
-//Move uploaded File
-move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-if(isset($lastid))
-{
-/*** assign the image id ***/
-$image_id = $lastid;
-try {
-/*** connect to the database ***/
-/*** set the PDO error mode to exception ***/
-$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//get image and type from column
-$sql = "SELECT image, image_type FROM imageblob WHERE image_id=$image_id";
-
-/*** prepare the sql ***/
-$stmt = $dbh->prepare($sql);
-/*** exceute the query ***/
-$stmt->execute(); 
-
-/*** set the fetch mode to associative array ***/
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-/*** set the header for the image ***/
-$array = $stmt->fetch();
-/*** check we have a single image and type ***/
-if(sizeof($array) == 2)
-{
-//To Display Image File from Database
-echo '<img src="data:image/jpeg;base64,'.base64_encode( $array['image'] ).'"/>';
-}
-else
-{
-throw new Exception("Out of bounds Error");
 }
 }
-catch(PDOException $e)
-{
-echo $e->getMessage();
+else { //user is not logged in, return to login screen
+header('Location: ../');
 }
-catch(Exception $e)
-{
-echo $e->getMessage();
-}
-}
-else
-{
-echo 'Please input correct Image ID';
-}
-}
-else
-{
-/*** throw an exception is image is not of type ***/
-throw new Exception("File Size Error");
-}
-}
-}
-}
-else
-{
-echo "<span id='invalid'>***Invalid file Size or Type***<span>";
-}
-}
-//2 methods:
-echo $_SESSION['userid'];
-//$userimg = "SELECT image, image_type, image_name, image_size FROM imageblob WHERE usertag=$name";
-//OR
-//
 ?>
