@@ -117,6 +117,7 @@ return $randomString;
         $sql = new mysqli("localhost","username","password","sqlserver");
         $query = "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'";
         $query = $sql->query($query);
+		$sql->close();
         while($user = $query->fetch_assoc())
         {
             echo '<div class="result">'.$user['username'].' '.$user['blurb'].'</div>';
@@ -156,13 +157,19 @@ return $randomString;
 			$update = "UPDATE sqlserver.imageblob set image='".$imgfp."',image_type='".$type."', image_name='".$name."', image_size='".$size."' whereuser_id=".$account['id'];
 			echo $update;
 			$sql->query($update);
+			$sql->close();
 		}
 	}
 	
 	public function getImage($id)
 	{
 		
-		echo 0;
+		$sql = new mysqli("localhost","username","password","sqlserver");
+		$img = "SELECT image, image_type FROM sqlserver.imageblob WHERE user_id=".$id;
+		$img=$sql->query($img);
+		$sql->close();
+		$img=$img->fetch_assoc();
+		return $img;
 	}
 		
 }

@@ -3,7 +3,9 @@
 	<head>
 	<title>Astrum</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
+		
 	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/changePass2.js"></script>
     <script type="text/javascript" src="../js/imgupload.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
     <script type='text/javascript' src='../js/home.js'></script>
@@ -86,6 +88,12 @@ echo '<input type="submit" value="Upload" class="submit" enctype="multipart/form
 echo '<div class="save">Save</div>';
 echo '<div class="saveBtn" method="post"></div>';
 echo '</form>';
+	
+echo '<form class="changePassForm" action="" method="post" enctype="multipart/form-data">';
+echo '<input class = "passwordText" type="password" placeholder="Change Password" name="passwordText">';
+echo '<input class = "oldPass" type="password" placeholder="Enter Old Password" name="oldPass">';
+echo '</form>';
+	
 	
 echo '</div>';
 //----------------------------------------------------  

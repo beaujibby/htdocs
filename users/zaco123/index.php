@@ -10,7 +10,7 @@
 	<body style = "background: url('images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
 <?php
 
-include("../php/Session.class.php");
+include("../../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
 
