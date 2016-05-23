@@ -130,7 +130,7 @@ return $randomString;
 		$content = $_POST['messagebox'];
 		$content = str_replace("'","\\'",$content);
 		$content = str_replace('"','\\"',$content);
-		$query = "INSERT INTO `messages`(`content`, `author`) VALUES ('".$content."','".$author."')";
+		$query = "INSERT INTO `messages`(`content`, `author_id`, `author`) VALUES ('".$content."','".$author['id']."','".$author['username']."')";
 		$sql = new mysqli("localhost","username","password","sqlserver");
 		$sql->query($query);
 		$sql->close();

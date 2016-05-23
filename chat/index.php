@@ -36,7 +36,7 @@ if(isset($_POST['logout'])){
 }
 
 if(isset($_POST['entermessage']) || isset($_POST['messagebox'])){
-	$sess->EnterMessage($account['username']);
+	$sess->EnterMessage($account);
 }
 
 /*echo '<div class="menu">';

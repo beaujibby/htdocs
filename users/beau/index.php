@@ -34,7 +34,7 @@ echo '<img src="data:image/jpeg;base64,'.$img['image'].'"'.'></img';
 $path = dirname($_SERVER['PHP_SELF']);
 $position = strrpos($path,'/') + 1;
 $username=substr($path,$position);
-////echo $username;
+//echo $username;
 
 ?>
 </body>
