@@ -25,6 +25,11 @@ autoSizeText = function() {
   return _results;
 };
 
+/*$(document).on("mouseover",".about", function(){
+            console.log("RAN IT");
+            $(this).text("This is the new html");
+});*/
+
 $(document).ready(function() {
     console.log("LOADED SCRIPT.JS");
 	
@@ -37,6 +42,29 @@ $(document).ready(function() {
         $(this).text("Z&S");
 
     });
+    
+    $(".about").mouseover(function () {
+        $(this).text("Zac Hardy & Skylar Thomas");
+
+    });
+    $(".about").mouseout(function () {
+        $(this).text("Z&S");
+
+    });
+    
+    //Change creds text
+   /* $(".about").hover(
+        function() // on mouseover
+        {
+            console.log("RAN IT");
+            $(this).text("This is the new html");
+        }, 
+        
+        function() // on mouseout
+        {
+            $(this).text("Z&Snnn");
+            
+        });*/
     
 });
 

@@ -20,7 +20,7 @@ text-decoration: none;
     padding-top: : 2px;
     position: relative;
     text-align: center;
-    float: center;
+    
     height: 6px;
     z-index: 6;
 	text-decoration: none;
@@ -31,6 +31,15 @@ text-decoration: none;
 right: 0px;
 top: 5px;
 position: absolute;
+}
+
+.about {
+    padding-top: : 2px;
+    position: relative;
+    text-align: center;
+    float: center;
+    height: 6px;
+    z-index: 6;
 }
 
 .signup {

@@ -42,5 +42,10 @@ if($checkforpass==$pass)
     //change password
     
 }
+else {
+    
+    echo 'incorrect password';
+    header("Refresh:0");
+}
 
 ?>

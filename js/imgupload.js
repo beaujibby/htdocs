@@ -48,7 +48,7 @@ $(document).ready(function (e) {
 		});
 		});
 		function imageIsLoaded(e) {
-		$("#file").css("color","green");
+		
 		$('#image_preview').css("display", "block");
 		$('.userimg').attr('src', e.target.result);
 		$('.userimg').attr('width', '250px');
