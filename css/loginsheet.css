@@ -23,6 +23,8 @@ text-decoration: none;
     float: center;
     height: 6px;
     z-index: 6;
+	text-decoration: none;
+	color: white;
 }
 
 .login {
