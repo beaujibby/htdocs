@@ -27,6 +27,16 @@ autoSizeText = function() {
 
 $(document).ready(function() {
     console.log("LOADED SCRIPT.JS");
+	
+	//expand creds
+	$(".about").mouseover(function () {
+        $(this).text("Zac Hardy & Skylar Thomas");
+
+    });
+    $(".about").mouseout(function () {
+        $(this).text("Z&S");
+
+    });
     
 });
 

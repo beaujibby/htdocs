@@ -16,6 +16,15 @@ font-family: "Helvetica Neue",Helvetica,Arial;
 text-decoration: none;
 }
 
+.about {
+    padding-top: : 2px;
+    position: relative;
+    text-align: center;
+    float: center;
+    height: 6px;
+    z-index: 6;
+}
+
 .login {
 right: 0px;
 top: 5px;
