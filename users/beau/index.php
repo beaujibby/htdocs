@@ -24,8 +24,9 @@ setcookie("session","",time()-1);
 
 else //user is signed in with valid cookie
 {
-$img = $sess->getImage(26);
-echo '<img src="data:image/jpeg;base64,'.$img['image'].'"'.'></img';
+$img = $sess->getChatImage(1);
+print_r($img);
+echo '<img src="data:image/jpeg;base64,'.$img['chatimage'].'"'.'></img';
 }
 
 }

@@ -35,13 +35,42 @@ $size = $size[3];
 $name = $_FILES['file']['name'];
 
 $sql = new mysqli("localhost","username","password","sqlserver");
-$imgfp = base64_encode(stream_get_contents($imgfp));
-$update = "UPDATE sqlserver.imageblob set image='".$imgfp."', image_type='".$type."', image_name='".$name."', image_size='".$size."' where user_id=".$account['id'];
+$imgfp64 = base64_encode(stream_get_contents($imgfp));
+$update = "UPDATE sqlserver.imageblob set image='".$imgfp64."', image_type='".$type."', image_name='".$name."', image_size='".$size."' where user_id=".$account['id'];
 $sql->query($update);
+	
+//small image
+	$w=50;$h=50;
+	list($width, $height) = getimagesize($_FILES['file']['tmp_name']);
+    $r = $width / $height;
+    
+        if ($w/$h > $r) { 
+            $newwidth = $h*$r;
+            $newheight = $h;
+        } else {
+            $newheight = $w/$r;
+            $newwidth = $w;
+        }
+	
+    $src = imagecreatefromjpeg($_FILES['file']['tmp_name']);
+    $dst = imagecreatetruecolor($newwidth, $newheight);
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+	ob_start();
+	imagejpeg($dst,null);
+	$dst=ob_get_clean();
+	
+	$dst = base64_encode($dst);
+			$update2 = "UPDATE sqlserver.imageblob set chatimage='".$dst."' where user_id=".$account['id'];
+			
+			$sql->query($update2);
+			 
+	//-------------------------------------
 
 $q = "SELECT image, image_type FROM sqlserver.imageblob WHERE user_id=".$account['id'];
 $q=$sql->query($q);
 $q=$q->fetch_assoc();
+	
+$sql->close();	
 echo '<img src="data:image/jpeg;base64,'.$q['image'].'"/>';
 }
 }
@@ -51,4 +80,24 @@ echo '<img src="data:image/jpeg;base64,'.$q['image'].'"/>';
 else { //user is not logged in, return to login screen
 header('Location: ../');
 }
+
+	//gd resize func
+	function resize_image($file, $w, $h) {
+    list($width, $height) = getimagesize($file);
+    $r = $width / $height;
+    
+        if ($w/$h > $r) { 
+            $newwidth = $h*$r;
+            $newheight = $h;
+        } else {
+            $newheight = $w/$r;
+            $newwidth = $w;
+        }
+    
+    $src = imagecreatefromjpeg($file);
+    $dst = imagecreatetruecolor($newwidth, $newheight);
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+    return $dst;
+	}
 ?>

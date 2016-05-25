@@ -28,8 +28,8 @@ class Session
 		for ($i = 0; $i < $length; $i++) {
 			$randomString .= $characters[rand(0, $charactersLength - 1)];
 		}
-return $randomString;
-}
+		return $randomString;
+	}
 
 	public function Login()
 	{
@@ -120,7 +120,10 @@ return $randomString;
 		$sql->close();
         while($user = $query->fetch_assoc())
         {
-            echo '<div class="result">'.$user['username'].' '.$user['blurb'].'</div>';
+            //echo '<div class="result">'.$user['username'].' '.$user['blurb'].'</div>';
+			echo '<a class = "result" href = "../profile">'.$user['username'].' '.$user['blurb'].'</a><br>'; //fix css
+			
+			//echo '<a class = "result" href = "http://www.astrum.xyz/profile/">'.$user['username'].' '.$user['blurb'].'</a><br>'; //fix css
         }
         echo '</div>';
     }
@@ -138,7 +141,7 @@ return $randomString;
 	
 	public function UploadImage()
 	{
-		$validextensions = array("jpeg", "jpg", "png");
+		$validextensions = array("jpeg", "jpg", "png", 'JPEG','PNG','JPG');
 		$maxsize = 99999999;
 		$temporary = explode(".", $_FILES["file"]["name"]);
 		$file_extension = end($temporary);
@@ -155,17 +158,29 @@ return $randomString;
 			$sql = new mysqli("localhost","username","password","sqlserver");
 			$imgfp = base64_encode(stream_get_contents($imgfp));
 			$update = "UPDATE sqlserver.imageblob set image='".$imgfp."',image_type='".$type."', image_name='".$name."', image_size='".$size."' whereuser_id=".$account['id'];
-			echo $update;
+			
 			$sql->query($update);
 			$sql->close();
 		}
 	}
+	
 	
 	public function getImage($id)
 	{
 		
 		$sql = new mysqli("localhost","username","password","sqlserver");
 		$img = "SELECT image, image_type FROM sqlserver.imageblob WHERE user_id=".$id;
+		$img=$sql->query($img);
+		$sql->close();
+		$img=$img->fetch_assoc();
+		return $img;
+	}
+	
+	
+	public function getChatImage($id)
+	{
+		$sql = new mysqli("localhost","username","password","sqlserver");
+		$img = "SELECT chatimage, image_type FROM sqlserver.imageblob WHERE user_id=".$id;
 		$img=$sql->query($img);
 		$sql->close();
 		$img=$img->fetch_assoc();
