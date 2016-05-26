@@ -120,8 +120,12 @@ class Session
 		$sql->close();
         while($user = $query->fetch_assoc())
         {
-            //echo '<div class="result">'.$user['username'].' '.$user['blurb'].'</div>';
-			echo '<a class = "result" href = "../profile">'.$user['username'].' '.$user['blurb'].'</a><br>'; //fix css
+            echo '<div class="result">';
+			echo '<img class="imageresult" src="data:image/jpeg;base64,'.$this->getChatImage($user['id'])['chatimage'].'"></img>';
+			//echo '<div class="usernameresult">'.$user['username'].'</div>';
+			echo '<a href ="'.$user['username'].'" class="usernameresult">'.$user['username'].'</a>';
+			echo '</div>';
+			//echo '<a class = "result" href = "../profile">'.$user['username'].' '.$user['blurb'].'</a><br>';
 			
 			//echo '<a class = "result" href = "http://www.astrum.xyz/profile/">'.$user['username'].' '.$user['blurb'].'</a><br>'; //fix css
         }

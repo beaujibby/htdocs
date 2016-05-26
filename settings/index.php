@@ -6,6 +6,7 @@
 		
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/changePass2.js"></script>
+	<script type="text/javascript" src="../js/changeBlurb.js"></script>
     <script type="text/javascript" src="../js/imgupload.js"></script>
 	<script type='text/javascript' src='../js/script.js'></script>
     <script type='text/javascript' src='../js/home.js'></script>
@@ -92,6 +93,14 @@ echo '</form>';
 echo '<form class="changePassForm" action="" method="post" enctype="multipart/form-data">';
 echo '<input class = "passwordText" type="password" placeholder="Change Password" name="passwordText">';
 echo '<input class = "oldPass" type="password" placeholder="Enter Old Password" name="oldPass">';
+echo '</form>';
+
+//blurb
+
+echo '<form class="blurbForm" action="" method="post" enctype="multipart/form-data">';
+echo '<div class="changeBlurb">Change Your Blurb</div>';
+echo '<div class="blurbBtn" method="post"></div>';
+echo '<input class = "blurbText" type="blurb" placeholder="Blurb" name="blurbText">';
 echo '</form>';
 	
 	

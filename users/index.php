@@ -42,7 +42,7 @@ echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/users"
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
 echo'</div>';
 echo '<div class="wrapper">';
-echo '<form class="usersearch" method="post"><input class="searchbar" name="searchbar"></input><input type="submit" class="submitsearch" value="search" name="submitsearch"></input></form>"';
+echo '<form class="usersearch" method="post"><input class="searchbar" name="searchbar"></input><input type="submit" class="submitsearch" value="search" name="submitsearch"></input></form>';
 if(isset($_POST['submitsearch']) || isset($_POST['searchbar'])){
 $sess->getUsers();
 echo '</div>';
