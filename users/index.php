@@ -13,9 +13,7 @@
 include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
-
 $cookie = isset($_COOKIE["session"]);
-
 if($cookie) //check if cookie exists for login
 {
 $cookie = $_COOKIE["session"];
@@ -46,14 +44,11 @@ echo '<form class="usersearch" method="post"><input class="searchbar" name="sear
 if(isset($_POST['submitsearch']) || isset($_POST['searchbar'])){
 $sess->getUsers();
 echo '</div>';
-
 }
 }
-
 else { //user is not logged in, return to login screen
 header('Location: ../');
 }
-
 ?>
 </body>
 </html>
