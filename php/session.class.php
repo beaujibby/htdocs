@@ -71,6 +71,24 @@ class Session
 		
 		$create = "INSERT INTO sqlserver.accounts (`id`, `username`, `password`, `cookie`,`ip`) VALUES (".$id.",'".$username."','".$password."','".$cookie."','".$ip."')";
 		$sql->query($create);
+			
+		//insert background planet img
+		/*$filename = "../images/backgroundplanet.png"	
+		$imgfile = file_get_contents($filename);	
+			
+		$size = getimagesize($imgfile);
+$type = $size['mime'];
+$imgfp = fopen($imgfile, 'rb');
+$size = $size[3];
+$name = $imgfile;
+
+$sql = new mysqli("localhost","username","password","sqlserver");
+$imgfp64 = base64_encode(stream_get_contents($imgfp));
+$update = "UPDATE sqlserver.imageblob set image='".$imgfp64."', image_type='".$type."', image_name='".$name."', image_size='".$size."' where user_id=".$account['id'];
+$sql->query($update);*/
+			
+			
+		
 		
 		$imgquery = "INSERT INTO sqlserver.imageblob (`user_id`) VALUES (".$id.")";
 		$sql->query($imgquery);

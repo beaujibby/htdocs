@@ -3,6 +3,7 @@
 <head>
 <title>astrum chat</title>
  <link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
+<link rel="icon" type = "image/x-icon" href="../favicon2.ico" />
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type='text/javascript' src='../js/script.js'></script>
 <script type='text/javascript' src='../js/livemessages.js'></script>

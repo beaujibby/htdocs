@@ -3,7 +3,7 @@
 	<head>
 	<title>Astrum</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
-		
+	<link rel="icon" type = "image/x-icon" href="../favicon2.ico" />	
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/changePass2.js"></script>
 	<script type="text/javascript" src="../js/changeBlurb.js"></script>

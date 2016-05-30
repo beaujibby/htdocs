@@ -3,9 +3,11 @@
 	<head>
 	<title>Astrum Profile</title>
 	<link rel='stylesheet' type='text/css' href='../../css/stylesheet.css'/>
+	<link rel="icon" type = "image/x-icon" href="../../favicon2.ico" />
 	<script type="text/javascript" src="../../js/jquery.js"></script>
 	<script type='text/javascript' src='../../js/script.js'></script>
     <script type='text/javascript' src='../../js/home.js'></script>
+	
 	
 	</head>
 
@@ -62,7 +64,7 @@ echo '<h1 class = "profileh">'.$username.'</h1>';
 
 //Get user id for image		
 $sql = new mysqli("localhost","username","password","sqlserver");
-		$id = "SELECT id, time, blurb FROM sqlserver.accounts WHERE username ='".$username."'";
+		$id = "SELECT id, time, blurb, admin FROM sqlserver.accounts WHERE username ='".$username."'";
 		//echo $id;
 		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
 		$id=$sql->query($id);
@@ -71,7 +73,7 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		//echo $id['id'];
 		
 		//echo $id['time']."\n";
-		echo $id['blurb'];
+		//echo $id['blurb'];
 		
 		$yr = (string) $id['time'];
 		$yr = substr($yr,0,4);
@@ -123,7 +125,12 @@ $array = $stmt->fetch();
 echo '<img class = "profileimage" src="'.$src.'"/>';
 echo '<h3>Date Joined</h3>';
 echo '<p class = profiletxt>'.$mnth." ".$day." ".$yr.'</p>';
-echo '<h3 class = profileHeader>Who is '.$username.'?</h3>';
+echo '<h3 class = profileHeader>Who is '.$username.'?';
+if($id['admin']==1)
+{
+	echo '<img class="admin" title="This user is an Administrator" src="../../images/admin.png"></img>';
+}
+echo '</h3>';
 echo '<p class = profiletxt>'.$blurb.'</p>';
 		
 echo '</div>';

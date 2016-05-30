@@ -33,15 +33,10 @@ autoSizeText = function() {
 $(document).ready(function() {
     console.log("LOADED SCRIPT.JS");
 	
-	//profile back
-	$('.backbtn').on('click', function(e){
-		console.log("back clicked");
-		history.go(-1);
-	});
-	
 	//expand creds
 	$(".about").mouseover(function () {
         $(this).text("Zac Hardy & Skylar Thomas");
+		console.log("working...");
 
     });
     $(".about").mouseout(function () {
@@ -58,19 +53,13 @@ $(document).ready(function() {
 
     });
     
-    //Change creds text
-   /* $(".about").hover(
-        function() // on mouseover
-        {
-            console.log("RAN IT");
-            $(this).text("This is the new html");
-        }, 
-        
-        function() // on mouseout
-        {
-            $(this).text("Z&Snnn");
-            
-        });*/
+	
+	//profile back
+	$(".backbtn").on('click', function(e){
+		//console.log("back clicked");
+		window.location.pathname+='../';
+	});
+	
     
 });
 

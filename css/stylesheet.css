@@ -413,11 +413,14 @@ h1 {
     transition-duration: 0.25s;
     height: 47px;
 }
-.paragraph {
+
+#paragraph2 {
 	
+	padding-top: 30px;
 	font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+	font-size: 21px;
 	
 }
 
@@ -483,7 +486,8 @@ h3 {
     z-index: 5;
 }
 .abtHeader {
-    padding-top: 40px;
+    padding-top: 80px;
+	font-size: 190px;
 }
 
 .profileh {
