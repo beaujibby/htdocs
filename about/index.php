@@ -22,8 +22,10 @@ echo '<div class="wrapper">';
 echo '<h1 class = "abtHeader">Astrum.xyz</h1>';
     
 echo '<div id = "paragraph"> Astrum - Latin for star, glory, and immortality. <br></div>';
-echo '<div id = "paragraph2"> The site was created by Skylar Thomas and Zac Hardy in May, 2016. </div>';
-//echo '<a class "back" href = "../"><div>Back to Home</div></a>';
+echo '<div id = "paragraph2"> This social network was created by Skylar Thomas and Zac Hardy in May, 2016. </div>';
+	
+echo '<button type="submit" class="register-button" name="Register">Register</button>';
+//echo '<a class "register" href = "../"><div>Register</div></a>';
 
 echo '<ul class="bg-bubbles">';
 echo '<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>';

@@ -12,6 +12,30 @@ font: icon;
 font-size: 16px;
 }
 
+.register-button {
+	
+	z-index: 5;
+	padding-top: 100px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #53e3a6;
+height: 50px;
+  border-radius: 5px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+.register-button:hover {
+  background-color: #f5f7f9;
+}
+
 #login { 
 position: absolute;
 width: 100%;
@@ -417,6 +441,7 @@ h1 {
 #paragraph2 {
 	
 	padding-top: 30px;
+	padding-bottom: 45px;
 	font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
@@ -459,7 +484,7 @@ h3 {
   color: white;
     
     text-align: center;
-    padding-top: 280px;
+    padding-top: 13px;
     font-size: 27px;
   font-weight: 300;
 }
@@ -470,6 +495,15 @@ h3 {
     text-align: center;
     padding-top: 10px;
     font-size: 27px;
+  font-weight: 300;
+}
+
+.statHeader {
+	font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+	padding-top: 250px;
+    text-align: center;
+    font-size: 22px;
   font-weight: 300;
 }
 .profiletxt {
@@ -509,6 +543,8 @@ left: calc(50% - 100px);
 padding: 20px;
 line-height: 0;
 width: 200px;
+    background-position: center center;
+    background-size: cover;
 	
 }
 .profilecircle {
@@ -728,5 +764,7 @@ body :-ms-input-placeholder {
  }
 
 .admin {
+	height: 15px;
+	padding-left: 5px;
     color: #FFF000;
 }

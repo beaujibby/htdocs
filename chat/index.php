@@ -33,7 +33,7 @@ else //user is signed in with valid cookie
 {
 
 if(isset($_POST['logout'])){
-	$sess->Logout();
+	 $sess->Logout($account['username']);
 }
 
 if(isset($_POST['entermessage']) || isset($_POST['messagebox'])){

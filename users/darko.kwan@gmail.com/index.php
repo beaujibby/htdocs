@@ -11,7 +11,7 @@
 	
 	</head>
 
-	<body style = "background: url('images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
+	<body>
 <?php
 
 include("../../php/Session.class.php");
@@ -33,13 +33,15 @@ $account = $sess->Verify($cookie);
 if($account==0) //user is singed in with invalid cookie
 {
 setcookie("session","",time()-1);
+header('Location: www.astrum.xyz'); //this isnt working
+	
 }
 
 else //user is signed in with valid cookie
 {
 
 if(isset($_POST['logout'])){
-	$sess->Logout();
+	 $sess->Logout($account['username']);
 }
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../../images/menuiconwhite.png"></img>';
@@ -64,7 +66,7 @@ echo '<h1 class = "profileh">'.$username.'</h1>';
 
 //Get user id for image		
 $sql = new mysqli("localhost","username","password","sqlserver");
-		$id = "SELECT id, time, blurb, admin FROM sqlserver.accounts WHERE username ='".$username."'";
+		$id = "SELECT id, time, blurb, admin, status FROM sqlserver.accounts WHERE username ='".$username."'";
 		//echo $id;
 		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
 		$id=$sql->query($id);
@@ -91,6 +93,13 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 			$blurb = "They haven't told us anything yet!";
 		}
 		
+		$status = $id['status'];
+		if($status == null)
+		{
+			$status = "offline";
+		}
+		//echo $status; 
+		
 //Image		
 		
 $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
@@ -109,20 +118,23 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 /*** set the header for the image ***/
 $array = $stmt->fetch();
  /*** check we have a single image and type ***/
- if(sizeof($array) == 2)
+ if((sizeof($array) == 2) && empty($array['image']) == false)
  {
-     //To Display Image File from Database
+     
      $imgdata = $array['image']; //store img src
 	 $src = 'data:image/jpeg;base64,'.$imgdata;
+	 //echo 'There are images';
  }
  else
  {
-	 echo 'no images';
-	 $src = '../images/backgroundplanet.png';
+	 //echo 'no images';
+	 $src = '../../images/noimage3.png';
 
  }
 
 echo '<img class = "profileimage" src="'.$src.'"/>';
+echo '<p class = statHeader>Status: '.$status.'</p>';		
+		
 echo '<h3>Date Joined</h3>';
 echo '<p class = profiletxt>'.$mnth." ".$day." ".$yr.'</p>';
 echo '<h3 class = profileHeader>Who is '.$username.'?';

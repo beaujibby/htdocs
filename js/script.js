@@ -53,6 +53,15 @@ $(document).ready(function() {
 
     });
     
+	//Register 
+	$(".register-button").on('click', function(e){
+		console.log("go to register");
+		
+		header('Location: ../register');
+		
+	});
+	
+	
 	
 	//profile back
 	$(".backbtn").on('click', function(e){

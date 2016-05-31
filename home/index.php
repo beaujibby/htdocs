@@ -27,13 +27,14 @@ if($account==0) //user is singed in with invalid cookie
 {
 setcookie("session","",time()-1);
 header('Location: /home');
+	
 }
 
 else //user is signed in with valid cookie
 {
 
 if(isset($_POST['logout'])){
-    $sess->Logout();
+    $sess->Logout($account['username']);
 }
 
 echo '<div class="header">';

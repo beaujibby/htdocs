@@ -45,8 +45,17 @@ class Session
 		if($password==$correctpassword)
 		{
 			setcookie("session",$checklogin['cookie'],time()+3600*24,"/");
+			
             header("Refresh:0");
+			
 		}
+				
+//Set status
+		$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$username."'";
+		$stat = $sql2->query($stat);
+		$sql2->close();
+			
 	}
 
 	public function CreateAccount($ip)
@@ -70,6 +79,8 @@ class Session
 		$cookie=$this->generateRandomString(30);
 		
 		$create = "INSERT INTO sqlserver.accounts (`id`, `username`, `password`, `cookie`,`ip`) VALUES (".$id.",'".$username."','".$password."','".$cookie."','".$ip."')";
+		
+		/*$create = "INSERT INTO sqlserver.accounts (`id`, `username`, `password`, `cookie`,`ip`, `status`) VALUES (".$id.",'".$username."','".$password."','".$cookie."','".$ip.", '".$status."')";*/
 		$sql->query($create);
 			
 		//insert background planet img
@@ -122,9 +133,18 @@ $sql->query($update);*/
         $sql->close();
 	}
 
-	public function Logout()
+	public function Logout($username)
 	{
 		setcookie("session","",time()-1,"/");
+
+		echo $username;
+		
+		//Set status
+		$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'offline' WHERE username='".$username."'";
+		$stat = $sql2->query($stat);
+		$sql2->close();
+		
 		header("Refresh:0");
 	}
     

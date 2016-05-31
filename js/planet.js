@@ -507,7 +507,8 @@ animate();
         
     var planet2 = new THREE.IcosahedronGeometry(8,1);
     var moon2 = new THREE.IcosahedronGeometry(1.5, 0);
-    var ring = new THREE.TorusGeometry(14.5, 0.1, 5, 112, 6.3);
+    //var ring = new THREE.TorusGeometry(14.5, 0.1, 5, 112, 6.3);
+	var ring = new THREE.TorusGeometry(14.5, 0.25, 5, 50, 6.3);
         
 	// material
 	var material1 = new THREE.MeshLambertMaterial(

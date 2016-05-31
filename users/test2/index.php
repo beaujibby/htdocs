@@ -33,15 +33,13 @@ $account = $sess->Verify($cookie);
 if($account==0) //user is singed in with invalid cookie
 {
 setcookie("session","",time()-1);
-header('Location: www.astrum.xyz'); //this isnt working
-	
 }
 
 else //user is signed in with valid cookie
 {
 
 if(isset($_POST['logout'])){
-	 $sess->Logout($account['username']);
+	$sess->Logout();
 }
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../../images/menuiconwhite.png"></img>';
@@ -66,7 +64,7 @@ echo '<h1 class = "profileh">'.$username.'</h1>';
 
 //Get user id for image		
 $sql = new mysqli("localhost","username","password","sqlserver");
-		$id = "SELECT id, time, blurb, admin, status FROM sqlserver.accounts WHERE username ='".$username."'";
+		$id = "SELECT id, time, blurb, admin FROM sqlserver.accounts WHERE username ='".$username."'";
 		//echo $id;
 		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
 		$id=$sql->query($id);
@@ -92,13 +90,6 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		{
 			$blurb = "They haven't told us anything yet!";
 		}
-		
-		$status = $id['status'];
-		if($status == null)
-		{
-			$status = "offline";
-		}
-		//echo $status; 
 		
 //Image		
 		
@@ -133,8 +124,6 @@ $array = $stmt->fetch();
  }
 
 echo '<img class = "profileimage" src="'.$src.'"/>';
-echo '<p class = statHeader>Status: '.$status.'</p>';		
-		
 echo '<h3>Date Joined</h3>';
 echo '<p class = profiletxt>'.$mnth." ".$day." ".$yr.'</p>';
 echo '<h3 class = profileHeader>Who is '.$username.'?';

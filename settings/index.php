@@ -31,7 +31,7 @@ else //user is signed in with valid cookie
 {
 
 if(isset($_POST['logout'])){
-    $sess->Logout();
+     $sess->Logout($account['username']);
 }
 $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -47,16 +47,17 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 /*** set the header for the image ***/
 $array = $stmt->fetch();
  /*** check we have a single image and type ***/
- if(sizeof($array) == 2)
+ if((sizeof($array) == 2) && empty($array['image']) == false)
  {
-     //To Display Image File from Database
+     
      $imgdata = $array['image']; //store img src
 	 $src = 'data:image/jpeg;base64,'.$imgdata;
+	 //echo 'There are images';
  }
  else
  {
-	 echo 'need images';
-	 $src = '../images/backgroundplanet.png';
+	 //echo 'no images';
+	 $src = '../images/noimage3.png';
 
  }
     

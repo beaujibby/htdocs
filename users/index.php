@@ -27,7 +27,7 @@ header('Location: ../');
 else //user is signed in with valid cookie
 {
 if(isset($_POST['logout'])){
-$sess->Logout();
+ $sess->Logout($account['username']);
 }
 }
 echo '<div class="header">';
