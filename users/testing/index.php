@@ -101,7 +101,7 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		
 		$time = (string) $id['lastOnline'];
 		$timeElapse = substr($time,11, 2);
-		echo date('H:i:s');
+		//echo date('H:i:s');
 		//if($)
 		//echo $status; 
 		
