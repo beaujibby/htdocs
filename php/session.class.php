@@ -54,6 +54,9 @@ class Session
 		$sql2 = new mysqli("localhost","username","password","sqlserver");
 		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$username."'";
 		$stat = $sql2->query($stat);
+		
+		$t = "UPDATE sqlserver.accounts SET lastOnline = now() WHERE username='".$username."'";
+		$t = $sql2->query($t);
 		$sql2->close();
 			
 	}
@@ -137,7 +140,7 @@ $sql->query($update);*/
 	{
 		setcookie("session","",time()-1,"/");
 
-		echo $username;
+		//echo $username;
 		
 		//Set status
 		$sql2 = new mysqli("localhost","username","password","sqlserver");

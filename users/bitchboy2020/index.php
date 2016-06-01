@@ -66,7 +66,7 @@ echo '<h1 class = "profileh">'.$username.'</h1>';
 
 //Get user id for image		
 $sql = new mysqli("localhost","username","password","sqlserver");
-		$id = "SELECT id, time, blurb, admin, status FROM sqlserver.accounts WHERE username ='".$username."'";
+		$id = "SELECT id, time, blurb, admin, status, lastOnline FROM sqlserver.accounts WHERE username ='".$username."'";
 		//echo $id;
 		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
 		$id=$sql->query($id);
@@ -98,6 +98,11 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		{
 			$status = "offline";
 		}
+		
+		$time = (string) $id['lastOnline'];
+		$timeElapse = substr($time,11, 2);
+		echo date('H:i:s');
+		//if($)
 		//echo $status; 
 		
 //Image		

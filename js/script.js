@@ -57,7 +57,7 @@ $(document).ready(function() {
 	$(".register-button").on('click', function(e){
 		console.log("go to register");
 		
-		header('Location: ../register');
+		window.location.href = "../register";
 		
 	});
 	

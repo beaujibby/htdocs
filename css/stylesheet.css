@@ -122,7 +122,9 @@ background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
 .logoutframe {
 position:absolute;
 bottom:8px;
+height: 20px;
 width: 100%;
+background-color: white;
 }
 
 

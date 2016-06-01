@@ -9,6 +9,7 @@
     <script src="../js/login.js"></script>
 	</head>
 
+	<body>
 <?php
 
 include("../php/Session.class.php");

@@ -27,7 +27,7 @@ echo '<div id = "paragraph2"> This social network was created by Skylar Thomas a
 echo '<button type="submit" class="register-button" name="Register">Register</button>';
 //echo '<a class "register" href = "../"><div>Register</div></a>';
 
-echo '<ul class="bg-bubbles">';
+echo '<ul class="bg-bubbles2">';
 echo '<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>';
 echo '</ul>';
 
