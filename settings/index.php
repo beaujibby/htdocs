@@ -60,6 +60,15 @@ $array = $stmt->fetch();
 	 $src = '../images/noimage3.png';
 
  }
+	
+	//blurb 
+	$sql = new mysqli("localhost","username","password","sqlserver");
+		$id = "SELECT id, blurb, password FROM sqlserver.accounts WHERE username ='".$account['username']."'";
+		//echo $id;
+		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
+		$id=$sql->query($id);
+		$sql->close();
+		$id=$id->fetch_assoc();
     
 //---------------------------------------------------------------------   
 echo '<div class="header">';
@@ -101,7 +110,9 @@ echo '</form>';
 echo '<form class="blurbForm" action="" method="post" enctype="multipart/form-data">';
 echo '<div class="changeBlurb">Change Your Blurb</div>';
 echo '<div class="blurbBtn" method="post"></div>';
-echo '<input class = "blurbText" type="blurb" placeholder="Blurb" name="blurbText">';
+    
+echo '<textarea class = "blurbEdit" method = "post" name="blurbEdit" rows="8" cols="50">'.$id['blurb'].'</textarea>';
+    
 echo '</form>';
 	
 	

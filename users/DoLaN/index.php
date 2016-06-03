@@ -101,9 +101,21 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		
 		$time = (string) $id['lastOnline'];
 		$timeElapse = substr($time,11, 2);
-		//echo date('H:i:s');
-		//if($)
-		//echo $status; 
+		
+		
+		$current = mktime();
+		$elapsed = strtotime($time);
+		//echo $time;
+		//echo $elapsed.'   ';
+		
+		//echo $current.'  ';
+		
+		//echo $current-$elapsed;
+		if($current-$elapsed >= 72000 && $status == "online")
+		{
+			//over 2 hrs
+			$status = "away";
+		}
 		
 //Image		
 		
