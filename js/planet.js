@@ -467,7 +467,7 @@ animate();
     function init() {  
         
 	var WIDTH = 400,
-	    HEIGHT = 300;
+	    HEIGHT = 290;
         // set some camera attributes
 	var VIEW_ANGLE = 45,
 	    ASPECT = WIDTH / HEIGHT,

@@ -47,7 +47,7 @@ echo '<input type="text" placeholder="Username" name="username">';
 echo '<input type="password" placeholder="Password" name="password">';
 echo '<button type="submit" id="login-button" name="login">Login</button>';
 echo '</form>';
-echo '<a href="/register" style="text-decoration: none;font-size:14px; color: white;z-index:3;position:relative">dont have an account? sign up today.</a>';
+echo '<a href="/register" style="text-decoration: none;font-size:14px; color: white;z-index:3;position:relative">dont have an account? go sign up</a>';
 
 //echo '<div class="about">Z&S</div>';
 echo '<div></div>';

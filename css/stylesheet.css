@@ -181,19 +181,26 @@ border: solid;
 .changeBlurb {
 	   display: block;
 	margin: auto;
-    padding: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
 	
-cursor: pointer;
-font-size: 18px;
-text-align: center;
-align-content: center;
-line-height: 0px;
-font-family: "Helvetica Neue",Helvetica,Arial;
-color: #fff;
-height: 26px;
-width: 250px;
-border-radius: 5px;
-border: solid;
+ -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #53e3a6;
+height: 50px;
+  border-radius: 5px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+.changeBlurb:hover {
+  background-color: #f5f7f9;
 }
 
 .userimg {
@@ -202,13 +209,6 @@ border: solid;
     background-position: center center;
     background-size: cover;
 	margin-top: 20px;
-}
-.blurbForm {
-	/*width: 200px;
-    height: 200px;
-    background-position: center center;
-    background-size: cover;
-	margin-top: 20px;*/
 }
 
 .file-upload, .changeUserBtn, .saveBtn, .submit, #file, .blurbBtn {
