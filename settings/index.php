@@ -73,6 +73,7 @@ $array = $stmt->fetch();
 //---------------------------------------------------------------------   
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
+echo '<p class= "title">ASTRUM.XYZ</p>';
 echo '</div>';
 echo '<div class="menubar">';
 echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></div>';

@@ -12,6 +12,7 @@ $(document).ready(function() {
         $('.menubar').stop().animate({left: "-140px"},500);
         left=!left;
         }
+		document.body.style.overflow = "hidden";
     });
     $('.headertext').css('visibility','visible').hide().fadeIn(1000).animate({top:0,opacity:0},2000,'linear',function(){$(this).remove()});
 });

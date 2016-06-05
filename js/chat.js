@@ -18,5 +18,6 @@ $(document).ready(function() {
         $('.submitmessage').stop().animate({width:newwidth,left:"0px"},500);
         left=!left;
         }
+		document.body.style.overflow = "hidden";
     });
 });

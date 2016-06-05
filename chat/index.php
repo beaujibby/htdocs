@@ -10,12 +10,15 @@
     <script type='text/javascript' src='../js/chat.js'></script>
 	</head>
 
-	<body style = "background: url('../images/backgroundplanet.png');background-size:cover;background-attachment:fixed";>
+	<body>
+		
 <?php
 
 include("../php/Session.class.php");
 $sess = new Session();
 $sess->Init();
+		
+//echo '<div class="wrapper"></div>';
 
 $cookie = isset($_COOKIE["session"]);
 
@@ -49,6 +52,7 @@ echo '</div>';*/
 
 echo '<div class="header">';
 echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
+	echo '<p class= "title">ASTRUM.XYZ</p>';
 echo '</div>';
 echo '<div class="menubar">';
 echo '<div class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></div>';
