@@ -38,7 +38,14 @@ if(isset($_POST['logout'])){
 }
 
 echo '<div class="header">';
-echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
+//echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';
+echo '<div class = "menubox">';
+echo '<div id="menutoggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>';
+echo '</div>';
 echo '<p class= "title">ASTRUM.XYZ</p>';
 echo '</div>';
 echo '<div class="menubar">';
